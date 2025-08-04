@@ -7,115 +7,115 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="brand-info">
-      <img src="/Xn-logo.png" class="logo" alt="XN Windows Logo" />
-      <div class="company-info">
-        <div class="address">2/53-67 Cranwell St, Braybrook VIC, 3019</div>
-        <div class="website">www.xnwindows.com.au</div>
-        <div class="contact-row">
-          <span class="label">Tel:</span>
-          <span class="value">0430 541 183</span>
-          <span class="label">Email:</span>
-          <span class="value">info@xnwindows.au</span>
-        </div>
-        <div class="contact-row">
-          <span class="label">Fax:</span>
-          <span class="value">03 9999 8888</span>
-          <span class="label">ABN:</span>
-          <span class="value">18 645 334 158</span>
+    <!-- HEADER -->
+    <div class="header">
+      <div class="brand-info">
+        <img src="/Xn-logo.png" class="logo" alt="XN Windows Logo" />
+        <div class="company-info">
+          <div class="address">2/53-67 Cranwell St, Braybrook VIC, 3019</div>
+          <div class="website">www.xnwindows.com.au</div>
+          <div class="contact-row">
+            <span class="label">Tel:</span>
+            <span class="value">0430 541 183</span>
+            <span class="label">Email:</span>
+            <span class="value">info@xnwindows.au</span>
+          </div>
+          <div class="contact-row">
+            <span class="label">Fax:</span>
+            <span class="value">03 9999 8888</span>
+            <span class="label">ABN:</span>
+            <span class="value">18 645 334 158</span>
+          </div>
         </div>
       </div>
+      <div class="invoice-info">
+        <div class="invoice-number">{{quote_id}}</div>
+        <div><strong>Date:</strong> {{quote_date}}</div>
+        <div><strong>Due:</strong> {{due_date}}</div>
+      </div>
     </div>
-    <div class="invoice-info">
-      <div class="invoice-number">{{quote_id}}</div>
-      <div><strong>Date:</strong> {{quote_date}}</div>
-      <div><strong>Due:</strong> {{due_date}}</div>
+
+    <!-- CONTACT BLOCK -->
+    <div class="contact-block">
+      <div class="contact">
+        <p> 
+          {{customer_name}}<br>
+          {{customer_address}}<br>
+          {{customer_phone}}<br>
+          {{customer_email}}
+        </p>
+      </div>
     </div>
-  </div>
 
-  <!-- CONTACT BLOCK -->
-  <div class="contact-block">
-    <div class="contact">
-      <p> 
-        {{customer_name}}<br>
-        {{customer_address}}<br>
-        {{customer_phone}}<br>
-        {{customer_email}}
-      </p>
-    </div>
-  </div>
+    <!-- JOB INFO -->
+    <div class="job-info">
+      <div><strong>Job Address:</strong> {{project_address}}</div>
+    </div>  
 
-  <!-- JOB INFO -->
-  <div class="job-info">
-    <div><strong>Job Address:</strong> {{project_address}}</div>
-  </div>  
-
-  <!-- ITEM LIST (SKIPPED FOR NOW) -->
+    <!-- ITEM LIST -->
     <div class="items-box no-grid">
-    <div class="item-row header">
-      <div>ITEM</div>
-      <div>ROOM</div>
-      <div>TYPE</div>
-      <div>SIZE (W x H)</div>
-      <div>Glass Type</div>
-      <div>Qty</div>
-    </div>
-    {{items_html}}
-  </div>
-
-  <!-- COST SUMMARY AREA -->
-<div class="summary-area">
-  <div class="important-info">
-    <h4>Important Information</h4>
-    <ul>
-      <li>Standard 20-25mm gaps apply; external gap filling and finishes are extra.</li>
-      <li>Installation includes secure mounting and smooth operation. Plastering, architraves, and painting are excluded unless specified.</li>
-    </ul>
-  </div>
-  <div class="cost-summary">
-    {{supply_cost_row}}
-    {{installation_fee_row}}
-    {{delivery_fee_row}}
-    {{demolition_fee_row}}
-    {{disposal_fee_row}}
-    <div class="row"><span>Subtotal</span><span>{{subtotal_cost}}</span></div>
-    <div class="row"><span>GST (10%)</span><span>{{gst_cost}}</span></div>
-    <div class="row total"><span>Total</span><span>{{total_cost}}</span></div>
-  </div>
-</div>
-
-  <!-- PAYMENT SECTION -->
-  <div class="payment-section pdf-payment-section">
-  <div class="payment-info-box two-column">
-    <div class="payment-details-col">
-      <div class="bank-title-row">
-        <span class="bank-title">Payment Details</span>
+      <div class="item-row header">
+        <div>ITEM</div>
+        <div>ROOM</div>
+        <div>TYPE</div>
+        <div>SIZE (W x H)</div>
+        <div>Glass Type</div>
+        <div>Qty</div>
       </div>
-      <div class="bank-detail"><span class="bank-label">Account:</span> XN Aluminium Windows Pty Ltd</div>
-      <div class="bank-detail"><span class="bank-label">BSB:</span> 123-456</div>
-      <div class="bank-detail"><span class="bank-label">Account:</span> 1122 3344</div>
-      <div class="bank-detail"><span class="bank-label">Reference:</span> {{quote_id}}</div>
-      <div class="qr-terms-box slim">
-        <span class="qr-terms-text">For full terms & conditions, scan the QR code:</span>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://xnwindows.com.au/terms" class="qr-code slim" alt="QR Code" />
-      </div>
+      {{items_html}}
     </div>
-    <div class="terms-conditions-col">
-      <div class="terms-conditions">
-        <h4>Terms & Conditions</h4>
+
+    <!-- COST SUMMARY AREA -->
+    <div class="summary-area">
+      <div class="important-info">
+        <h4>Important Information</h4>
         <ul>
-          <li>Upon quote acceptance, an invoice will be issued for a 50% deposit to begin production.</li>
-          <li>The remaining balance is due upon delivery or completion of installation.</li>
+          <li>Standard 20-25mm gaps apply; external gap filling and finishes are extra.</li>
+          <li>Installation includes secure mounting and smooth operation. Plastering, architraves, and painting are excluded unless specified.</li>
         </ul>
       </div>
+      <div class="cost-summary">
+        {{supply_cost_row}}
+        {{installation_fee_row}}
+        {{delivery_fee_row}}
+        {{demolition_fee_row}}
+        {{disposal_fee_row}}
+        <div class="row"><span>Subtotal</span><span>{{subtotal_cost}}</span></div>
+        <div class="row"><span>GST (10%)</span><span>{{gst_cost}}</span></div>
+        <div class="row total"><span>Total</span><span>{{total_cost}}</span></div>
+      </div>
     </div>
-  </div>
-</div>
 
-<!-- TERMS AND CONDITIONS SECTION --
+    <!-- PAYMENT SECTION -->
+    <div class="payment-section pdf-payment-section">
+      <div class="payment-info-box two-column">
+        <div class="payment-details-col">
+          <div class="bank-title-row">
+            <span class="bank-title">Payment Details</span>
+          </div>
+          <div class="bank-detail"><span class="bank-label">Account:</span> XN Aluminium Windows Pty Ltd</div>
+          <div class="bank-detail"><span class="bank-label">BSB:</span> 123-456</div>
+          <div class="bank-detail"><span class="bank-label">Account:</span> 1122 3344</div>
+          <div class="bank-detail"><span class="bank-label">Reference:</span> {{quote_id}}</div>
+          <div class="qr-terms-box slim">
+            <span class="qr-terms-text">For full terms & conditions, scan the QR code:</span>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://xnwindows.com.au/terms" class="qr-code slim" alt="QR Code" />
+          </div>
+        </div>
+        <div class="terms-conditions-col">
+          <div class="terms-conditions">
+            <h4>Terms & Conditions</h4>
+            <ul>
+              <li>Upon quote acceptance, an invoice will be issued for a 50% deposit to begin production.</li>
+              <li>The remaining balance is due upon delivery or completion of installation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
+  </div> <!-- end .container -->
 </body>
 </html>
